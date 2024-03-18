@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@devindex/vue-mask": "^2.0.3",
     "@radix-icons/vue": "^1.0.0",
     "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",

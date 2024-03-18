@@ -12,7 +12,6 @@ onMounted(()=>{
 </script>
 
 <template>
-
   <LoginView v-if="!auth.isAuthenticated"/>
   <RouterView v-else />
 </template>
