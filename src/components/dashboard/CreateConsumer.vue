@@ -23,7 +23,7 @@ import FormCreateConsumer from "./FormCreateConsumer.vue";
      </Button>
     </DialogTrigger>
 
-    <DialogContent as-child>
+    <DialogContent class="m-0 h-full rounded-none w-full max-w-none min-w-0" as-child>
      <FormCreateConsumer />
     </DialogContent>
    </Dialog>

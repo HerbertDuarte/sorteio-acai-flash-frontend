@@ -35,8 +35,8 @@ function handleSubmit(e: Event) {
     um bilhete usando o CPF.
    </DialogDescription>
   </DialogHeader>
-  <div class="flex justify-center items-center w-full gap-2">
-   <div class="flex-1 flex flex-col gap-2">
+  <div class="flex sm:flex-row flex-col justify-center items-center w-full gap-2">
+   <div class="flex-1 w-full flex flex-col gap-2">
     <label class="text-sm font-medium text-zinc-500 px-2" for="cpf">CPF</label>
     <Input class="rounded-xl" v-model="formRegister.cpf" v-mask-cpf id="cpf" type="text" />
     <label class="text-sm font-medium text-zinc-500 px-2" for="name">Nome</label>
@@ -46,7 +46,7 @@ function handleSubmit(e: Event) {
     <label class="text-sm font-medium text-zinc-500 px-2" for="cep">CEP</label>
     <Input class="rounded-xl" v-model="formRegister.cep" v-mask-cep type="text" id="cep" />
    </div>
-   <div class="flex-1 flex flex-col gap-2">
+   <div class="flex-1 w-full flex flex-col gap-2">
     <label class="text-sm font-medium text-zinc-500 px-2" for="log">Logradouro</label>
     <Input class="rounded-xl" v-model="formRegister.log" type="text" id="log" />
     <label class="text-sm font-medium text-zinc-500 px-2" for="num">Número</label>
