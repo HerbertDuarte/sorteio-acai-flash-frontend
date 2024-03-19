@@ -6,6 +6,7 @@ import Dialog from "../ui/dialog/Dialog.vue";
 import DialogTrigger from "../ui/dialog/DialogTrigger.vue";
 import DialogContent from "../ui/dialog/DialogContent.vue";
 import FormCreateConsumer from "./FormCreateConsumer.vue";
+import DialogScrollContent from "../ui/dialog/DialogScrollContent.vue";
 </script>
 <template>
 
@@ -23,9 +24,9 @@ import FormCreateConsumer from "./FormCreateConsumer.vue";
      </Button>
     </DialogTrigger>
 
-    <DialogContent class="m-0 h-full rounded-none w-full max-w-none min-w-0" as-child>
+    <DialogScrollContent as-child>
      <FormCreateConsumer />
-    </DialogContent>
+    </DialogScrollContent>
    </Dialog>
   </div>
  </div>

@@ -25,7 +25,8 @@ function handleSubmit(e: Event) {
 </script>
 
 <template>
- <form class="bg-white w-full max-w-[660px] flex flex-col px-9 py-6 rounded-2xl shadow-2xl m-3" @submit="handleSubmit">
+ <form class="bg-white w-full max-w-[660px] flex flex-col p-4 sm:px-9 sm:py-6 rounded-2xl shadow-2xl"
+  @submit="handleSubmit">
   <DialogHeader>
    <DialogTitle class="uppercase text-md font-bold text-[#72256D]">
     Cadastrar cliente
