@@ -81,3 +81,19 @@
 .bg-frutas {
  background-image: url("../assets/bg-primary-theme.png");
 }
+
+::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background-color: #fcf2fd;
+}
+
+::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background-color: #72256D;
+
+}
