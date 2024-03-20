@@ -5,6 +5,9 @@ import Button from "@/components/ui/button/Button.vue";
 
 import { ref } from "vue";
 import { CalendarIcon, PlusCircleIcon, TagsIcon } from "lucide-vue-next";
+import Dialog from "../ui/dialog/Dialog.vue";
+import DialogTrigger from "../ui/dialog/DialogTrigger.vue";
+import GenerateTickerModal from "./GenerateTickerModal.vue";
 const date = ref({
   start: new Date(2022, 0, 20),
   end: addDays(new Date(2022, 0, 20), 20),
@@ -31,9 +34,15 @@ const date = ref({
       ) : 'Pick a date' }}
         </span>
       </Button>
-      <Button class="rounded-xl w-full sm:w-auto min-w-24">
-        Gerar
-      </Button>
+      <Dialog>
+        <DialogTrigger class=" w-full sm:w-auto min-w-24" as-child>
+          <Button class="rounded-xl w-full sm:w-auto min-w-24">
+            Gerar
+          </Button>
+        </DialogTrigger>
+
+        <GenerateTickerModal/>
+      </Dialog>
     </div>
 
   </div>

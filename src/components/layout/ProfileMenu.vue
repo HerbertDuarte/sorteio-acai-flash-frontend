@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { LogOut, User, UsersIcon, ChevronDownIcon } from "lucide-vue-next";
+import { LogOut, User, UsersIcon, ChevronDownIcon, SquareUser, SquareUserIcon } from "lucide-vue-next";
 import { Button } from "@/components/ui/button";
 import {
  DropdownMenu,
@@ -48,9 +48,17 @@ watch(
    <DropdownMenuSeparator />
 
    <DropdownMenuItem>
-    <UsersIcon :stroke-width="3" class="mr-2 h-4 w-4" />
-    <span class="font-medium">Usuários</span>
+    <SquareUserIcon :stroke-width="3" class="mr-2 h-4 w-4" />
+    <span class="font-medium">Funcionários</span>
    </DropdownMenuItem>
+
+   <DropdownMenuSeparator />
+
+   <DropdownMenuItem>
+    <UsersIcon :stroke-width="3" class="mr-2 h-4 w-4" />
+    <span class="font-medium">Clientes</span>
+   </DropdownMenuItem>
+
    <DropdownMenuSeparator />
 
    <DropdownMenuItem @click="auth.logout">
