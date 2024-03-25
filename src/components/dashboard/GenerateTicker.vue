@@ -4,7 +4,7 @@ import { addDays, format } from 'date-fns'
 import Button from "@/components/ui/button/Button.vue";
 
 import { ref } from "vue";
-import { CalendarIcon, PlusCircleIcon, TagsIcon } from "lucide-vue-next";
+import { CalendarIcon, TagsIcon } from "lucide-vue-next";
 import Dialog from "../ui/dialog/Dialog.vue";
 import DialogTrigger from "../ui/dialog/DialogTrigger.vue";
 import GenerateTickerModal from "./GenerateTickerModal.vue";
@@ -18,7 +18,7 @@ const date = ref({
   <div class="bg-white border shadow-sm border-zinc-200/80 rounded-2xl w-full p-6 sm:p-10 space-y-2">
     <p class="text-[#820497] text-xl flex-1 font-bold uppercase w-full flex items-center pb-2 gap-2">
       <TagsIcon :stroke-width="2.5" />
-      <span>Gerar bilhete</span>
+      <span>Gerar link</span>
     </p>
     <div class="flex flex-col sm:flex-row items-center gap-2 cursor-not-allowed">
       <Button id="date" :variant="'outline'" :class="cn(

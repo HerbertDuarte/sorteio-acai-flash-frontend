@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { LogOut, User, UsersIcon, ChevronDownIcon, SquareUser, SquareUserIcon } from "lucide-vue-next";
-import { Button } from "@/components/ui/button";
+import { LogOut, User, UsersIcon, ChevronDownIcon, SquareUserIcon, LayoutDashboardIcon } from "lucide-vue-next";
 import {
  DropdownMenu,
  DropdownMenuContent,
@@ -10,13 +9,13 @@ import {
  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import DialogTrigger from "../ui/dialog/DialogTrigger.vue";
+import Button from "../ui/button/Button.vue";
 
-import { useAuthStore } from "@/stores/auth";
-
-const auth = useAuthStore();
 const props = defineProps(["reference"])
 const width = ref(0)
 
+console.log(props.reference)
 watch(
  () => props.reference,
  (value) => {
@@ -27,6 +26,7 @@ watch(
 </script>
 
 <template>
+
  <DropdownMenu>
   <DropdownMenuTrigger as-child>
    <Button class="px-2.5" variant="outline">
@@ -40,31 +40,43 @@ watch(
    </Button>
   </DropdownMenuTrigger>
   <DropdownMenuContent :style="{ width: `${width}px` }">
-   <DropdownMenuItem>
+   <DropdownMenuItem @click="$router.push('/')">
+    <LayoutDashboardIcon :stroke-width="3" class="mr-2 h-4 w-4" />
+    <span class="font-medium">Dashboard</span>
+   </DropdownMenuItem>
+
+   <DropdownMenuSeparator />
+
+   <DropdownMenuItem @click="$router.push('/profile')">
     <User :stroke-width="3" class="mr-2 h-4 w-4" />
     <span class="font-medium">Perfil</span>
    </DropdownMenuItem>
 
    <DropdownMenuSeparator />
 
-   <DropdownMenuItem>
+   <DropdownMenuItem @click="$router.push('/user')">
     <SquareUserIcon :stroke-width="3" class="mr-2 h-4 w-4" />
     <span class="font-medium">Funcionários</span>
    </DropdownMenuItem>
 
    <DropdownMenuSeparator />
 
-   <DropdownMenuItem>
+   <DropdownMenuItem @click="$router.push('/consumer')">
     <UsersIcon :stroke-width="3" class="mr-2 h-4 w-4" />
     <span class="font-medium">Clientes</span>
    </DropdownMenuItem>
 
    <DropdownMenuSeparator />
 
-   <DropdownMenuItem @click="auth.logout">
-    <LogOut :stroke-width="3" class="mr-2 h-4 w-4" />
-    <span class="font-medium">Sair</span>
-   </DropdownMenuItem>
+
+   <DialogTrigger as-child>
+    <DropdownMenuItem>
+     <LogOut :stroke-width="3" class="mr-2 h-4 w-4" />
+     <span class="font-medium">Sair</span>
+    </DropdownMenuItem>
+   </DialogTrigger>
+
   </DropdownMenuContent>
  </DropdownMenu>
+
 </template>

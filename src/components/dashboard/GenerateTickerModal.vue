@@ -4,7 +4,7 @@ import DialogContent from '../ui/dialog/DialogContent.vue';
 import DialogDescription from '../ui/dialog/DialogDescription.vue';
 import DialogHeader from '../ui/dialog/DialogHeader.vue';
 import DialogTitle from '../ui/dialog/DialogTitle.vue';
-import Button from '../ui/button/Button.vue';
+
 import TooltipProvider from '../ui/tooltip/TooltipProvider.vue';
 import TooltipTrigger from '../ui/tooltip/TooltipTrigger.vue';
 import Tooltip from '../ui/tooltip/Tooltip.vue';
@@ -15,7 +15,7 @@ import TooltipContent from '../ui/tooltip/TooltipContent.vue';
 <template>
  <DialogContent class="flex flex-col">
   <DialogHeader>
-   <DialogTitle class="text-[#820497] text-md uppercase flex items-center gap-3">
+   <DialogTitle>
     <PartyPopperIcon />
     <span>Link gerado com sucesso!</span>
    </DialogTitle>
