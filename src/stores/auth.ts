@@ -28,8 +28,9 @@ export const useAuthStore = defineStore("auth", () => {
   const isAuthenticated = ref<boolean>(false);
   const user = ref<IUser | undefined>(undefined);
   const isLoading = ref<boolean>(false);
+  const api_url = process.env.API_URL as string;
   const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: api_url,
   });
 
   const { toast } = useToast();
