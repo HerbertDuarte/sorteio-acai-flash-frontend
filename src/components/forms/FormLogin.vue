@@ -9,7 +9,7 @@ import { validateLoginForm } from "@/assets/js/validators/validate-login-form";
 
 const auth = useAuthStore();
 const formLogin = ref<ILogin>({
-  email: "",
+  username: "",
   password: "",
 });
 const formValid = ref(false)
@@ -30,9 +30,8 @@ watch(() => formLogin.value, () => {
     @submit="handleSubmit">
     <p class="text-center text-xl pb-4">Login</p>
 
-    <label class="text-sm font-medium text-zinc-500 px-2" for="email">Email</label>
-
-    <input class="bg-zinc-200 p-3 rounded-3xl outline-none text-sm" v-model="formLogin.email" type="email" id="email" />
+    <label class="text-sm font-medium text-zinc-500 px-2" for="username">Usuário</label>
+    <input class="bg-zinc-200 p-3 rounded-3xl outline-none text-sm" v-model="formLogin.username" type="username" id="username" />
     <label class="text-sm font-medium text-zinc-500 px-2" for="password">Senha</label>
     <input class="bg-zinc-200 p-3 rounded-3xl outline-none text-sm" v-model="formLogin.password" type="password"
       id="password" />

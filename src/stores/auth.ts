@@ -2,15 +2,24 @@ import { ref, watch } from "vue";
 import { defineStore } from "pinia";
 import axios from "axios";
 import { useToast } from "@/components/ui/toast/use-toast";
+
+export type Nivel = "Master" | "Administrador";
+export type Situacao = "Ativo" | "Inativo";
+
 export interface IUser {
   id: string;
-  name: string;
   email: string;
-  password?: string;
+  createdAt: string;
+  deletedAt?: null;
+  login: string;
+  nivel: Nivel;
+  nome: string;
+  situacao: Situacao;
+  updatedAt: string;
 }
 
 export interface ILogin {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -20,7 +29,7 @@ export const useAuthStore = defineStore("auth", () => {
   const user = ref<IUser | undefined>(undefined);
   const isLoading = ref<boolean>(false);
   const api = axios.create({
-    baseURL: "http://localhost:3333",
+    baseURL: "http://localhost:3000",
   });
 
   const { toast } = useToast();
@@ -49,11 +58,10 @@ export const useAuthStore = defineStore("auth", () => {
   async function login(body: ILogin): Promise<void> {
     try {
       isLoading.value = true;
-      const { data } = await api.post("/user/auth", body);
+      const { data } = await api.post("/auth/login", body);
       const newUser: IUser = data.user;
       accessToken.value = data.access_token;
       user.value = newUser;
-      localStorage.setItem("user", JSON.stringify(newUser));
     } catch (error) {
       console.log(error);
       toast({
@@ -71,7 +79,6 @@ export const useAuthStore = defineStore("auth", () => {
     user.value = undefined;
     accessToken.value = undefined;
     isLoading.value = false;
-
   }
 
   watch(user, () => {

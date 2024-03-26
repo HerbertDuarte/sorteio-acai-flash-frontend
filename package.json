@@ -13,6 +13,7 @@
   "dependencies": {
     "@devindex/vue-mask": "^2.0.3",
     "@radix-icons/vue": "^1.0.0",
+    "@tanstack/vue-table": "^8.15.0",
     "@vueuse/core": "^10.9.0",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",

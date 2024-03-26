@@ -33,9 +33,9 @@ watch(
    <Button class="px-2.5" variant="outline">
     <div class="flex justify-between items-center gap-2 text-slate-700">
      <div class="size-6 bg-zinc-200 flex justify-center items-center rounded-full">
-      {{ auth.user?.name.split("")[0] }}
+      {{ auth.user?.nome.split("")[0] }}
      </div>
-     <div class="flex-1 hidden sm:block">{{ auth.user?.name }}</div>
+     <div class="flex-1 hidden sm:block">{{ auth.user?.nome }}</div>
      <ChevronDownIcon class="flex-1 hidden sm:block" :stroke-width="2" />
     </div>
    </Button>
