@@ -12,12 +12,11 @@ import { useAuthStore } from '@/stores/auth';
 import DialogClose from '../ui/dialog/DialogClose.vue';
 const profileBadge = ref();
 const auth = useAuthStore();
-watch(profileBadge, (value) => { console.log(value) })
 </script>
 
 <template>
  <header class="bg-[#72256D] border-b-4 border-[#FBAE39] p-2 flex justify-between items-center">
-  <img class="h-12" src="@/assets/logolaranja.png" alt="logo laranja" />
+  <img class="h-12" src="@/assets/images/logolaranja.png" alt="logo laranja" />
   <p class="flex-1 text-right px-4">
 
    <span class="text-[#FBAE39] font-medium">

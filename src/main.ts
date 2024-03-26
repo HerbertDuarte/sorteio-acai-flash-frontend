@@ -1,4 +1,5 @@
-import './assets/main.css'
+import '@/assets/css/main.css'
+import '@/assets/css/index.css'
 import "../vue-mask.d.ts"
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

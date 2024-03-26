@@ -11,11 +11,12 @@ import {
 
 import DialogTrigger from "../ui/dialog/DialogTrigger.vue";
 import Button from "../ui/button/Button.vue";
+import { useAuthStore } from "@/stores/auth";
 
 const props = defineProps(["reference"])
 const width = ref(0)
+const auth = useAuthStore()
 
-console.log(props.reference)
 watch(
  () => props.reference,
  (value) => {
@@ -32,9 +33,9 @@ watch(
    <Button class="px-2.5" variant="outline">
     <div class="flex justify-between items-center gap-2 text-slate-700">
      <div class="size-6 bg-zinc-200 flex justify-center items-center rounded-full">
-      H
+      {{ auth.user?.name.split("")[0] }}
      </div>
-     <div class="flex-1 hidden sm:block">Herbert Duarte</div>
+     <div class="flex-1 hidden sm:block">{{ auth.user?.name }}</div>
      <ChevronDownIcon class="flex-1 hidden sm:block" :stroke-width="2" />
     </div>
    </Button>

@@ -43,7 +43,7 @@ import TooltipContent from '../ui/tooltip/TooltipContent.vue';
     </TooltipProvider>
    </div>
    <div class="flex justify-center items-center py-8">
-    <img src="@/assets/qrcode-example.png" />
+    <img src="@/assets/images/qrcode-example.png" />
    </div>
   </div>
  </DialogContent>

@@ -12,9 +12,9 @@
             <span>Links abertos</span>
           </p>
           <div>
-            <Dialog>
+            <Dialog v-for="item in 5">
               <DialogTrigger as-child>
-                <p v-for="item in 5" class="flex items-center hover:underline cursor-pointer gap-2 text-slate-700">
+                <p class="flex items-center hover:underline cursor-pointer gap-2 text-slate-700">
                   <LinkIcon :size="20" />
                   <button class="flex-1 max-w-max truncate">
                     https://sorteios-acai-flash.com/10b9ea2c-0f1f-4110-ac1e-cc0a8bf218a9
