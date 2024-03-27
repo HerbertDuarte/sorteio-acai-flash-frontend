@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col justify-center items-center bg-[#fcf2fd] flex-1 py-3">
+  <main class="flex flex-col justify-center items-center flex-1 py-3">
     <div
       class="flex flex-col-reverse lg:flex-row justify-center items-stretch w-full p-2 sm:p-10 gap-3 sm:gap-4 md:gap-6 lg:gap-10 max-w-[1300px]">
       <LastWinnersTable />

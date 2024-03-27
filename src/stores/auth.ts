@@ -2,6 +2,7 @@ import { ref, watch } from "vue";
 import { defineStore } from "pinia";
 import axios from "axios";
 import { useToast } from "@/components/ui/toast/use-toast";
+import { useRouter } from "vue-router";
 
 export type Nivel = "Master" | "Administrador";
 export type Situacao = "Ativo" | "Inativo";
@@ -28,12 +29,13 @@ export const useAuthStore = defineStore("auth", () => {
   const isAuthenticated = ref<boolean>(false);
   const user = ref<IUser | undefined>(undefined);
   const isLoading = ref<boolean>(false);
+  const api_url = process.env.API_URL as string;
   const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: api_url,
   });
 
   const { toast } = useToast();
-
+  const router = useRouter()
   function verifyLogin(): void {
     if (localStorage.getItem("access_token") !== null) {
       /* lógica de request de login para confirmar o login do usuario */
@@ -62,6 +64,7 @@ export const useAuthStore = defineStore("auth", () => {
       const newUser: IUser = data.user;
       accessToken.value = data.access_token;
       user.value = newUser;
+      router.push("/home")
     } catch (error) {
       console.log(error);
       toast({
@@ -79,6 +82,7 @@ export const useAuthStore = defineStore("auth", () => {
     user.value = undefined;
     accessToken.value = undefined;
     isLoading.value = false;
+    router.push("/")
   }
 
   watch(user, () => {

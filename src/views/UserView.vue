@@ -41,7 +41,7 @@ onMounted(() => {
       nome: "Pedro",
       situacao: "ativo",
     },
-    
+
   ]
 
   totalItems.value = 23
@@ -51,14 +51,8 @@ onMounted(() => {
 
 <template>
   <main class="p-8 w-full flex justify-center items-center">
-    <div class="w-full max-w-[1000px]">
-      <div>
-
-      </div>
-
-      <div v-if="users" class="flex justify-center items-center w-full border rounded-lg p-3 shadow-md">
-        <UsersTable :data="users" :items="totalItems" />
-      </div>
+    <div class="w-full max-w-[900px]">
+      <UsersTable :data="users" :items="totalItems" />
     </div>
   </main>
 </template>
