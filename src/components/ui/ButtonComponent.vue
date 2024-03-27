@@ -8,7 +8,8 @@ const props = defineProps({
     type: Number
   },
   isActive: {
-    type: Boolean
+    type: Boolean,
+    default: true
   }
 });
 </script>

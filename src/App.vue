@@ -16,7 +16,6 @@ onMounted(() => {
 
 <template>
   <Toaster />
-  <LoginView v-if="!auth.isAuthenticated" />
   <HeaderComponent v-if="auth.isAuthenticated" />
-  <RouterView v-if="auth.isAuthenticated" />
+  <RouterView />
 </template>

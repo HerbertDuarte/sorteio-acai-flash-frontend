@@ -9,18 +9,17 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { ChevronLeft, ChevronRight, EditIcon, EyeIcon, TrashIcon, XIcon, } from 'lucide-vue-next';
+import { ChevronLeft, ChevronRight, XIcon, } from 'lucide-vue-next';
 import { ref } from 'vue';
-import UserRow from './UserRow.vue';
+import ConsumerRow from './ConsumerRow.vue';
 import { useToast } from '@/components/ui/toast';
-
 defineProps({
   items: {
     type: Number,
     required: true
   },
   data: {
-    type:Array,
+    type: Array,
     required: true
   },
 })
@@ -29,7 +28,7 @@ const maxPages = ref(3)
 const search = ref("")
 const { toast } = useToast();
 
-function cleanSearch(){
+function cleanSearch() {
   search.value = ""
 }
 
@@ -59,14 +58,14 @@ function previusPage() {
 <template>
   <main class="p-4 w-full bg-white border rounded-lg shadow-md">
     <div class="text-center pb-4">
-      <h1 class="text-[#820497] uppercase font-semibold">Funcionários</h1>
+      <h1 class="text-[#820497] uppercase font-semibold">Clientes</h1>
     </div>
     <div class="flex gap-2 pb-4">
       <Input v-model="search" placeholder="pesquise pelo nome" />
       <Button @click="cleanSearch" class="p-2" variant="outline">
         <XIcon />
       </Button>
-      <Button :disabled="search.length === 0" @click="searchData" variant="outline">
+      <Button @click="searchData" variant="outline">
         Pesquisar
       </Button>
     </div>
@@ -84,7 +83,7 @@ function previusPage() {
       </TableHeader>
       <TableBody v-if="data.length > 0">
         <TableRow :key="index" v-for="(item, index) in  data">
-          <UserRow :item="item" />
+          <ConsumerRow :item="item" />
         </TableRow>
       </TableBody>
     </Table>

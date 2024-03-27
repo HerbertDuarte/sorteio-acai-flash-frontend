@@ -1,33 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ConsumerView from '@/views/ConsumerView.vue'
-import UserView from '@/views/UserView.vue'
-import ProfileView from '@/views/ProfileView.vue'
+import {
+  createRouter,
+  createWebHistory,
+  type NavigationGuardWithThis,
+} from "vue-router";
+import { routes } from "./routes";
+import { useAuthStore } from "@/stores/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/consumer',
-      name: 'consumer',
-      component: ConsumerView
-    },
-    {
-      path: '/user',
-      name: 'user',
-      component: UserView
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: ProfileView
-    },
-  ]
-})
+  routes,
+});
 
-export default router
+router.beforeEach(async (to, from, next) => {
+  const auth = useAuthStore();
+  const isAuthenticated = auth.isAuthenticated;
+  console.log(to.meta.requiresAuth, isAuthenticated);
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next({ name: "login" });
+  } else if (!to.meta.requiresAuth && isAuthenticated) {
+    next({ name: "home" });
+  } else {
+    next();
+  }
+});
+
+export default router;

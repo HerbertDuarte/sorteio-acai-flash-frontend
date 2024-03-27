@@ -1,9 +1,9 @@
-export function validateLoginForm(form: any): boolean {
+export function validateLoginForm(form: any): string | false {
   if (form.username.length === 0) {
-    return false;
+    return "Digite um nome de usuário";
   }
   if (form.password.length < 6) {
-    return false;
+    return "A senha precisa ter no mínimo 6 dígitos";
   }
-  return true;
+  return false;
 }
